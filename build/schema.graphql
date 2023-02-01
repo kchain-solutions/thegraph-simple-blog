@@ -1,0 +1,19 @@
+type NewBlog @entity(immutable: true) {
+  id: Bytes!
+  owner: Bytes! # address
+  blogAddr: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type NewPost @entity(immutable: true) {
+  id: Bytes!
+  owner: Bytes! # address
+  postAddr: Bytes! # address
+  URI: String!
+  content: String
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

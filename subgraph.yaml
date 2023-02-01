@@ -1,0 +1,45 @@
+specVersion: 0.0.5
+description: Simple blog
+repository: https://github.com/kchain-solutions/solidity-simple-blog
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: BlogFactory
+    network: goerli
+    source:
+      address: "0x2259Ff8FfEF4e92454a4ef1ED516291c5A2CC3fC"
+      abi: BlogFactory
+      startBlock: 8409000
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - NewBlog
+      abis:
+        - name: BlogFactory
+          file: ./abis/BlogFactory.json
+      eventHandlers:
+        - event: NewBlog(address,address)
+          handler: handleNewBlog
+      file: ./src/blog-factory.ts
+templates:
+  - kind: ethereum
+    name: Blog
+    network: goerli
+    source:
+      abi: Blog
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - NewPost
+      abis:
+        - name: Blog
+          file: ./abis/Blog.json
+      eventHandlers:
+        - event: NewPost(address,address,string)
+          handler: handleNewPost
+      file: ./src/blog-factory.ts
