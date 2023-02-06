@@ -15,11 +15,13 @@ The events that the Subgraph will index are
 ## Install graph-cli
 ```npm install -g @graphprotocol/graph-cli```
 
-## Login into your account
+## Login into your graph-cli account
+Access with your metamask account to the [The Graph Studio](https://thegraph.com/studio/) and login with your api key into the graph-cli.
+
 ![](./img/auth.png)
 
 ## Deploy code
-Enter in the project directory with the terminal and run
+Clone this repository, enter in the project directory with the terminal and run: 
 * ```npm run codegen```
 * ```npm run deploy```
 
