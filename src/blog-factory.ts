@@ -23,7 +23,7 @@ export function handleNewPost(event: NewPostEvent): void {
     event.transaction.hash.concatI32(event.logIndex.toI32())
   )
   entity.owner = event.params.owner;
-  entity.postAddr = event.params.owner;
+  entity.postAddr = event.params.post;
   entity.URI = event.params.URI;
   entity.blockNumber = event.block.number;
   entity.blockTimestamp = event.block.timestamp;
